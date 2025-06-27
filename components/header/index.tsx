@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Login from "../login";
+import Login from "../login-logout";
 import { Session } from "next-auth";
 import { login, logout } from "@/lib/auth-actions";
 
