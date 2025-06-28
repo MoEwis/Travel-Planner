@@ -88,7 +88,6 @@
 // };
 
 // export default NewTrip;
-"use client";
 
 import TripForm from "@/components/react-hook-form/TripForm";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -97,7 +96,6 @@ const NewTrip = () => {
   return (
     <div className="max-w-lg mx-auto mt-10">
       <Card>
-        <CardHeader>New Trip</CardHeader>
         <CardContent>
           <TripForm />
         </CardContent>
