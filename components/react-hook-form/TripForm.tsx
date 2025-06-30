@@ -132,7 +132,7 @@
 
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { CardContent, CardHeader } from "@/components/ui/card";
 import { createTrip } from "@/lib/actions/create-trip";
 import { cn } from "@/lib/utils";
 import { useState, useTransition } from "react";

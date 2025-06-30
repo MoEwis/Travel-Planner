@@ -1,5 +1,7 @@
 import { auth } from "@/auth";
 import AccessCondition from "@/components/access-condition";
+import TripDetailsClient from "@/components/trip-details";
+import NewLocationForm from "@/components/trip-location";
 import { prisma } from "@/lib/prisma";
 
 const TripDetails = async ({ params }: { params: { id: string } }) => {
@@ -39,8 +41,7 @@ const TripDetails = async ({ params }: { params: { id: string } }) => {
   }
   return (
     <div>
-      <h1>{trip.title}</h1>
-      <p></p>
+      <TripDetailsClient trip={trip} />
     </div>
   );
 };
