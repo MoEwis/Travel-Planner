@@ -3,10 +3,13 @@ import AccessCondition from "@/components/access-condition";
 import TripDetailsClient, {
   TripWithLocations,
 } from "@/components/trip-details";
-import NewLocationForm from "@/components/trip-location";
 import { prisma } from "@/lib/prisma";
-
-const TripDetails = async ({ params }: { params: { id: string } }) => {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+const TripDetails = async ({ params }: PageProps) => {
   const secssion = await auth();
 
   const { id } = params;
