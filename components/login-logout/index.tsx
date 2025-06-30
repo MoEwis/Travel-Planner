@@ -9,12 +9,12 @@ interface LoginProps {
 const Login = ({ state, text }: LoginProps) => {
   return (
     <Button
-      className="bg-gray-900 hover:bg-gray-800 cursor-pointer "
+      className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 text-white font-semibold px-5 py-2 rounded-xl shadow-md transition-all duration-200"
       onClick={state}
     >
-      {text}
+      <span className="tracking-wide">{text}</span>
       <svg
-        className="w-6 h-6 ml-2"
+        className="w-6 h-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
