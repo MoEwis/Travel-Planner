@@ -5,7 +5,6 @@ const NewLocation = async ({ params }: { params: { id: string } }) => {
   return (
     <div>
       <NewLocationClient tripId={tripId} />
-      <h1>{tripId || "Trip ID not found"}</h1>
     </div>
   );
 };

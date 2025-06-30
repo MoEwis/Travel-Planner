@@ -1,6 +1,8 @@
 import { auth } from "@/auth";
 import AccessCondition from "@/components/access-condition";
-import TripDetailsClient from "@/components/trip-details";
+import TripDetailsClient, {
+  TripWithLocations,
+} from "@/components/trip-details";
 import NewLocationForm from "@/components/trip-location";
 import { prisma } from "@/lib/prisma";
 
@@ -13,7 +15,12 @@ const TripDetails = async ({ params }: { params: { id: string } }) => {
       id,
       userId: secssion?.user?.id,
     },
+    include: {
+      location: true,
+    },
   });
+  console.log(trip);
+
   if (!secssion) {
     return (
       <AccessCondition

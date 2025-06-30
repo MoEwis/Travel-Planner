@@ -1,13 +1,18 @@
 "use client";
-import { Trip } from "@/lib/generated/prisma";
+import { Location, Trip } from "@/lib/generated/prisma";
 import Image from "next/image";
-import { Calendar, Plus } from "lucide-react";
+import { Calendar, MapPin, Plus } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
+import Map from "../map";
 
-const TripDetailsClient = ({ trip }: { trip: Trip }) => {
+export type TripWithLocations = Trip & {
+  location: Location[];
+};
+
+const TripDetailsClient = ({ trip }: { trip: TripWithLocations }) => {
   console.log("Trip Details:", trip);
   const [activeTab, setActiveTab] = useState("overview");
   return (
@@ -79,7 +84,21 @@ const TripDetailsClient = ({ trip }: { trip: Trip }) => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start"></div>
+                <div className="flex items-start">
+                  <MapPin className="w-6 h-6 text-gray-500 mr-3" />
+                  <div className="">
+                    <p>Destinations</p>
+                    <p className="">
+                      {trip.location.length}
+                      <span className="ml-2">
+                        {trip.location.length > 1 ? "Locations" : "Location"}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="h-72 rounded-lg overflow-hidden shadow">
+                <Map intineraies={trip.location} />
               </div>
             </div>
           </TabsContent>
