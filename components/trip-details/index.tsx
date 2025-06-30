@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import Map from "../map";
+import SortableItinerary from "./SortableItinerary";
 
 export type TripWithLocations = Trip & {
   location: Location[];
 };
 
 const TripDetailsClient = ({ trip }: { trip: TripWithLocations }) => {
-  console.log("Trip Details:", trip);
   const [activeTab, setActiveTab] = useState("overview");
   return (
     <div className="container mx-auto px-4 py-8">
@@ -101,6 +101,12 @@ const TripDetailsClient = ({ trip }: { trip: TripWithLocations }) => {
                 <Map intineraies={trip.location} />
               </div>
             </div>
+          </TabsContent>
+          <TabsContent value="itinerary" className="space-y-6">
+            <div className="flex justify-between items-center mb-4 ">
+              <h2 className="text-2xl font-semibold mb-4">Full Itinerary</h2>
+            </div>
+            <SortableItinerary locations={trip.location} tripId={trip.id} />
           </TabsContent>
         </Tabs>
       </div>
