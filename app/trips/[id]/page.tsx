@@ -57,3 +57,4 @@ const TripDetails = async ({ params }: PageProps) => {
 };
 
 export default TripDetails;
+//
