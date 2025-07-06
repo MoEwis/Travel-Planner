@@ -1,10 +1,12 @@
 import NewLocationClient from "@/components/trip-location";
 
 interface PageProps {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 }
 
-const NewLocation = async ({ params }: PageProps) => {
+const NewLocation = ({ params }: PageProps) => {
   const { id: tripId } = params;
 
   return (
