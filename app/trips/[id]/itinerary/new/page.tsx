@@ -5,7 +5,8 @@ interface PageProps {
 }
 
 const NewLocation = async ({ params }: PageProps) => {
-  const { id: tripId } = await params;
+  const { id: tripId } = params;
+
   return (
     <div>
       <NewLocationClient tripId={tripId} />
