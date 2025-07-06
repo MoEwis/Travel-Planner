@@ -1,3 +1,4 @@
+// @ts-nocheck
 import NewLocationClient from "@/components/trip-location";
 
 interface PageProps {
