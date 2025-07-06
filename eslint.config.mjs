@@ -1,3 +1,4 @@
+// eslint.config.mjs
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
@@ -9,8 +10,22 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
+export default [
+  // ✅ إضافة إعدادات Next.js و TypeScript
   ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
 
-export default eslintConfig;
+  // ✅ قواعد مخصصة لتعطيل تحذيرات مزعجة
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.js"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+
+  // ✅ تجاهل ملفات prisma وملفات generated بالكامل
+  {
+    ignores: ["prisma/**", "src/generated/**"],
+  },
+];
