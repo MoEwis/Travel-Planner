@@ -6,7 +6,7 @@ interface PageProps {
   };
 }
 
-const NewLocation = ({ params }: PageProps) => {
+export default async function NewLocation({ params }: PageProps) {
   const { id: tripId } = params;
 
   return (
@@ -14,6 +14,4 @@ const NewLocation = ({ params }: PageProps) => {
       <NewLocationClient tripId={tripId} />
     </div>
   );
-};
-
-export default NewLocation;
+}
