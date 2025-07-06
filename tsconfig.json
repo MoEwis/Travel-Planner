@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/trips/[id]/itinerary/new/page.jsx"
+    "app/trips/[id]/itinerary/new/page.jsx",
+    "app/trips/[id]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

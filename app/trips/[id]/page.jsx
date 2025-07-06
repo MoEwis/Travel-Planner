@@ -4,12 +4,8 @@ import TripDetailsClient, {
   TripWithLocations,
 } from "@/components/trip-details";
 import { prisma } from "@/lib/prisma";
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-const TripDetails = async ({ params }: PageProps) => {
+
+const TripDetails = async ({ params }) => {
   const secssion = await auth();
 
   const { id } = params;
